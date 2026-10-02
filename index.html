@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feliz día del arquitecto</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Allura&family=Playfair+Display:ital,wght@0,500;0,700;1,600&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #eeede4;
+  color: #68685e;
+  font-family: 'Special Elite', Georgia, serif;
+  font-size: 14px;
+}
+
+.page {
+  width: min(960px, 96%);
+  margin: 18px auto;
+  background: #fafaf3;
+  border: 2px solid #d0d0c2;
+  box-shadow: 0 0 12px #c9c9bb;
+}
+
+header {
+  height: 100px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  background: #fafaf3;
+}
+
+header h1 {
+  font: clamp(42px, 7vw, 76px) 'Allura', cursive;
+  color: #77786c;
+  margin: 0;
+  font-weight: 400;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 215px 1fr;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+nav h3 {
+  background: #858969;
+  color: #f5f3df;
+  border-radius: 20px;
+  padding: 4px 12px;
+  margin: 4px 0;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+nav a {
+  display: block;
+  border: 1px solid #d4d3c7;
+  border-radius: 18px;
+  background: linear-gradient(#fff, #f0f0e8);
+  padding: 7px 12px;
+  margin: 3px 0;
+  color: #77766b;
+  text-decoration: none;
+}
+
+.main {
+  background: repeating-linear-gradient(
+    90deg,
+    #f0f0dc 0 18px,
+    #e8e9d0 18px 36px
+  );
+  padding: 20px;
+}
+
+.olaa {
+  background: #fffef9;
+  border: 5px double #d1d0c4;
+  padding: 18px;
+  min-height: 390px;
+  line-height: 1.5;
+  position: relative;
+}
+
+h2 {
+  font: italic 600 24px 'Playfair Display', serif;
+  color: #8d9077;
+  margin: 0 0 4px;
+}
+
+.intro { max-width: 600px; }
+
+.profile {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  float: left;
+  margin: 10px 12px 5px 0;
+  border: 3px solid #e4e4d8;
+  padding: 2px;
+  background: #fff;
+}
+
+.landscape {
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  width: 38%;
+  height: 190px;
+  object-fit: cover;
+  border: 7px solid white;
+  outline: 2px solid #c7c7b8;
+  box-shadow: 0 2px 6px #999;
+}
+
+.linkheading {
+  font: italic 600 23px 'Playfair Display', serif;
+  color: #989b81;
+  margin-top: 18px;
+}
+
+.linkicons {
+  display: flex;
+  gap: 8px;
+  margin: 5px 0;
+}
+
+.linkicons span {
+  border: 2px solid #ddd;
+  background: #fafaf5;
+  padding: 9px 20px;
+}
+
+.photos {
+  margin-top: 32px;
+  background: #b8b995;
+  border: 3px solid #d6d5c8;
+  padding: 10px;
+}
+
+.photos h2 {
+  border-bottom: 1px solid #999b80;
+  padding-bottom: 7px;
+}
+
+.letter {
+  width: 100%;
+  min-height: 265px;
+  border: 2px solid #deded1;
+  background: linear-gradient(135deg, #fefdf7, #e9e9d9);
+  box-shadow: inset 0 0 0 7px #f7f6ed;
+  cursor: pointer;
+  color: #7c806c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  transition: .2s;
+}
+
+.letter:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px #8d8f75;
+}
+
+.letter .seal {
+  font-size: 42px;
+  margin: 10px;
+}
+
+.letter strong {
+  font: italic 26px 'Playfair Display', serif;
+}
+
+.letter small { margin-top: 12px; }
+
+.lower {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  margin-top: 10px;
+  background: #e9eadb;
+  border-top: 3px solid #d0d0c1;
+  min-height: 240px;
+}
+
+.lower > section {
+  padding: 16px;
+  border-right: 2px solid #d4d4c8;
+}
+
+.playlist {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.playlist a {
+  color: #77766b;
+  text-decoration: underline;
+}
+
+.playlist a:hover {
+  color: #858969;
+}
+
+.record { font-size: 72px; }
+
+footer {
+  text-align: center;
+  padding: 22px;
+  color: #99998f;
+  border-top: 2px solid #ddd;
+}
+
+.calendar {
+  background: #fffef8;
+  border: 2px solid #d3d2c6;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.calendar h3 {
+  text-align: center;
+  font-size: 17px;
+  margin: 4px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.days span {
+  padding: 6px 0;
+  background: #f0f0e9;
+  border: 1px solid #e3e2d8;
+}
+
+.days .empty {
+  background: transparent;
+  border: 0;
+}
+
+.days .today {
+  background: #9b9e7e;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #171811d9;
+  z-index: 5;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.open { display: flex; }
+
+.modalbox {
+  max-width: 850px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #f7f7ed;
+  padding: 18px;
+  border: 6px double #b8b99d;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: 0;
+  background: #858969;
+  color: white;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border: 6px solid white;
+  outline: 1px solid #bbb;
+}
+
+@media(max-width:650px) {
+  .layout { grid-template-columns: 1fr; }
+
+  nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  nav h3 { grid-column: span 2; }
+
+  .landscape {
+    position: static;
+    width: 100%;
+    height: 140px;
+    margin-top: 12px;
+  }
+
+  .lower { grid-template-columns: 1fr; }
+
+  .gallery img { height: 150px; }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<header>
+  <h1>Feliz día del arquitecto&lt;3</h1>
+</header>
+
+<div class="layout">
+
+<nav>
+  <h3>S I T E L Y</h3>
+  <a>sitemap</a>
+  <a>information</a>
+  <a>archive</a>
+  <a>site of the month</a>
+  <a>resources</a>
+
+  <h3>P E R S O N A L</h3>
+  <a>webmaster</a>
+  <a>blog</a>
+  <a>recipes</a>
+  <a>music</a>
+  <a>photography</a>
+  <a>commonplace</a>
+  <a>collections</a>
+  <a>film log</a>
+
+  <h3>O F F S I T E</h3>
+  <a>guestbook</a>
+  <a>outlinks</a>
+  <a>neocities profile</a>
+</nav>
+
+<main class="main">
+
+<section class="olaa">
+
+<div class="intro">
+
+  <h2>
+    Olaa caleep
+    <small style="font:14px Georgia">
+      Te hice una pequeña cartita, espero que te guste.
+    </small>
+  </h2>
+
+  ¡Feliz día del arquitecto! 🤍
+
+Quería hacerte un pequeño detalle porque sé lo mucho que te esfuerzas en tu carrera y todas las ganas que le pones,
+ incluso cuando te toca desvelarte haciendo tus maquetas jajaja. Admiro mucho tu dedicación y todo lo que haces para cumplir tus metas. 
+
+
+Sé que no es un regalo material ni algo muy grande, pero lo hice con mucho cariño y con lo poquito que tengo a mi alcance. 
+Espero que te guste y que, cuando lo veas, recuerdes que hay alguien que se siente muy orgullosa de ti y de todo lo que estás logrando. 
+Nunca dejes de echarle tantas ganas a lo que te gusta. ♡
+ recuerda que tienes que hacerme mi casita con muuuuuchos animales ehh.
+
+  <p>
+    <img class="profile"
+         src="perfil.JPEG"
+         alt="Foto de perfil"
+         onerror="this.style.background='#b9bba0';this.removeAttribute('src')">
+
+    "Encomienda a Jehova tus obras, Y tus pensamientos serán afirmados"
+                        Provervios 16: 3
+  </p>
+
+</div>
+
+<div class="De una persona que te aprecia un monton"></div>
+
+<div class="linkicons">
+  <span>p 🌼</span>
+  <span>♧</span>
+</div>
+
+"Todo tiene su tiempo, y todo lo que se quiere debajo <br> del cielo tiene su hora".<br>
+Eclesiastes:3-1 <u></u>
+
+<img class="landscape"
+     src="paisaje.WEBP"
+     alt="Paisaje">
+
+</section>
+
+<section class="photos">
+  <h2>Recent photographs</h2>
+
+  <button class="letter" id="open">
+    <span style="font-size:35px">✉</span>
+    <strong>Una carta para ti</strong>
+    <span class="seal">✿</span>
+    <small>Presiona para abrir</small>
+  </button>
+</section>
+
+</main>
+</div>
+
+<div class="lower">
+
+<section>
+  <small>October</small>
+  <h2>Note</h2>
+  Para la persona que construye sus sueños día con día con tanto esfuerzo y talento. ¡Gracias por inspirar a todos a tu alrededor! ♡
+</section>
+
+<section class="playlist">
+  <div class="record">◉</div>
+  <div>
+    <h2>My playlist</h2>
+    <a href="https://open.spotify.com/intl-es/track/6RyiFEQtr746plHiPNv82u?si=a3569a87c32c45e1" target="_blank">Presiona para escuchar</a><br>
+  </div>
+</section>
+
+</div>
+
+<h2 style="text-align: center; margin-top: 20px;">Feliz Dia</h2>
+
+<div class="layout">
+  <div></div>
+
+  <div class="calendar">
+    <h3>OCTOBER 2026</h3>
+    <div class="days" id="days"></div>
+  </div>
+</div>
+
+<footer>
+  De Cesiahn no tenia muchas fotos<br>
+  Hecho con cariño ♡
+</footer>
+
+</div>
+
+<!-- VENTANA DE FOTOGRAFIAS -->
+<div class="modal" id="modal">
+  <div class="modalbox">
+    <button class="close" id="close">Cerrar ✕</button>
+
+    <h2>Recent photographs</h2>
+
+    <div class="gallery">
+      <img src="foto1.JPEG" alt="Fotografía 1">
+      <img src="foto2.JPEG" alt="Fotografía 2">
+      <img src="foto3.JPEG" alt="Fotografía 3">
+      <img src="foto4.JPEG" alt="Fotografía 4">
+    </div>
+  </div>
+</div>
+
+<script>
+const days = document.getElementById('days');
+
+['D','L','M','M','J','V','S'].forEach(d => {
+  let s = document.createElement('span');
+  s.textContent = d;
+  days.appendChild(s);
+});
+
+let offset = new Date(2026, 9, 1).getDay();
+let count = new Date(2026, 10, 0).getDate();
+
+for (let i = 0; i < offset; i++) {
+  let s = document.createElement('span');
+  s.className = 'empty';
+  days.appendChild(s);
+}
+
+for (let d = 1; d <= count; d++) {
+  let s = document.createElement('span');
+  s.textContent = d;
+
+  if (d === 1) s.className = 'today';
+
+  days.appendChild(s);
+}
+
+const modal = document.getElementById('modal');
+
+document.getElementById('open').onclick = () => {
+  modal.classList.add('open');
+};
+
+document.getElementById('close').onclick = () => {
+  modal.classList.remove('open');
+};
+
+modal.onclick = e => {
+  if (e.target === modal) {
+    modal.classList.remove('open');
+  }
+};
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    modal.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>
